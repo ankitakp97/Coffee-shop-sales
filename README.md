@@ -1,56 +1,27 @@
-# Coffee Shop Sales
+# Coffee Shop Sales Dashboard
 
-A compact analytics project for exploring coffee shop performance and turning transaction data into practical business decisions.
+A lightweight, elegant dashboard prototype for visualizing coffee shop sales performance.
 
-## Overview
-This repository is intended as a clean foundation for sales analysis, with emphasis on:
-- consistent KPI definitions,
-- reproducible transformations,
-- and presentation-ready outputs for stakeholders.
+## What’s Included
+- `dashboard/index.html`: a polished, single-page sales dashboard with KPI cards and charts.
 
-## Business Questions
-- Which products and categories contribute most to revenue?
-- When are demand peaks by hour and day of week?
-- How do order volume and average order value move over time?
-- Which items are high-volume but low-margin candidates for optimization?
+## Dashboard Highlights
+- KPI cards: Total Revenue, Total Orders, AOV, Units Sold
+- Revenue trend line (12-day snapshot)
+- Category mix doughnut chart
+- Hourly demand bar chart
+- Top products ranking chart
 
-## KPI Definitions
-| KPI | Definition |
-|---|---|
-| Total Revenue | Sum of `unit_price × quantity` |
-| Total Orders | Count of distinct order IDs |
-| Units Sold | Sum of item quantities |
-| Average Order Value (AOV) | `Total Revenue ÷ Total Orders` |
-| Revenue by Category | Revenue grouped by product category |
-| Peak Hours | Hourly buckets ranked by order count or revenue |
+## Run Locally
+Open the dashboard directly in your browser:
 
-## Suggested Repository Layout
-```
-Coffee-shop-sales/
-├── data/
-│   ├── raw/           # source extracts
-│   └── processed/     # cleaned modeling-ready tables
-├── sql/               # KPI and reporting queries
-├── notebooks/         # exploratory analysis
-├── dashboards/        # BI files / app configs
-├── reports/           # insight summaries
-└── README.md
+```bash
+open dashboard/index.html
 ```
 
-## Getting Started
-1. Place source files in `data/raw/`.
-2. Create cleaned datasets in `data/processed/` (typed columns, null handling, deduplication).
-3. Build KPI queries in `sql/` and validate totals against source data.
-4. Publish visuals (dashboard or notebook report) focused on decisions, not just charts.
+Or serve it with Python:
 
-## Quality Checklist
-- Use one canonical definition per KPI.
-- Keep date/time logic explicit (timezone, week start, holiday handling).
-- Separate transformation logic from presentation logic.
-- Document assumptions in report footnotes.
-
-## Contributing
-PRs that improve data quality, metric reliability, query performance, or dashboard clarity are welcome.
-
-## License
-Add a license file (for example, MIT) if you plan to distribute this project.
+```bash
+python3 -m http.server 8000
+# then visit http://localhost:8000/dashboard/index.html
+```
